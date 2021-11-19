@@ -28,6 +28,11 @@ const routes = [
     name: 'Requests',
     component: () => import('../views/Requests.vue'),
   },
+  {
+    path: '/trades',
+    name: 'Trades',
+    component: () => import('../views/Trades.vue'),
+  },
 ];
 
 const router = new VueRouter({
