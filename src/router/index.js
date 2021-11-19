@@ -33,6 +33,16 @@ const routes = [
     name: 'Trades',
     component: () => import('../views/Trades.vue'),
   },
+  {
+    path: '/users',
+    name: 'Users',
+    component: () => import('../views/Users.vue'),
+  },
+  {
+    path: '/users/:userId',
+    name: 'UserProfile',
+    component: () => import('../views/UserProfile.vue'),
+  },
 ];
 
 const router = new VueRouter({
