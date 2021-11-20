@@ -7,11 +7,18 @@
 </template>
 
 <script>
+import axios from 'axios';
 import Nav from './components/Nav.vue';
 
 export default {
   components: {
     Nav,
+  },
+  async created() {
+    const res = await axios.get('http://localhost:3000/users/login/success', {
+      withCredentials: true,
+    });
+    console.log(res.data);
   },
 };
 </script>
