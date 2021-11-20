@@ -18,7 +18,10 @@
           <li class="nav-item">
             <router-link to="/books" class="nav-link">Books</router-link>
           </li>
-          <li class="nav-item dropdown">
+          <li v-if="!this.user" class="nav-item">
+            <router-link to="/requests" class="nav-link">Requests</router-link>
+          </li>
+          <li v-if="this.user" class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"
               href="#"
@@ -49,10 +52,10 @@
           </li>
         </ul>
         <ul class="navbar-nav navbar-right mb-2 mb-lg-0">
-          <li class="nav-item">
+          <li v-if="!this.user" class="nav-item">
             <router-link to="/login" class="nav-item nav-link">Login</router-link>
           </li>
-          <li class="nav-item dropdown">
+          <li v-if="this.user" class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"
               href="#"
@@ -61,11 +64,13 @@
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              username
+              {{ user.username }}
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li>
-                <router-link to="/profile" class="dropdown-item">Profile</router-link>
+                <router-link :to="`/users/${this.user._id}`" class="dropdown-item"
+                  >Profile</router-link
+                >
               </li>
               <li>
                 <router-link to="/profile/edit" class="dropdown-item">Edit Profile</router-link>
@@ -88,6 +93,9 @@
 import axios from 'axios';
 
 export default {
+  props: {
+    user: Object,
+  },
   methods: {
     async logout() {
       try {
