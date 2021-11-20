@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <Nav />
+    <Nav :user="user" />
     <div id="nav"></div>
-    <router-view />
+    <router-view :user="user" />
   </div>
 </template>
 
@@ -11,14 +11,21 @@ import axios from 'axios';
 import Nav from './components/Nav.vue';
 
 export default {
+  data: () => ({
+    user: null,
+  }),
   components: {
     Nav,
   },
   async created() {
-    const res = await axios.get('http://localhost:3000/users/login/success', {
-      withCredentials: true,
-    });
-    console.log(res.data);
+    try {
+      const res = await axios.get('http://localhost:3000/users/login/success', {
+        withCredentials: true,
+      });
+      this.user = res.data;
+    } catch (e) {
+      this.user = null;
+    }
   },
 };
 </script>
