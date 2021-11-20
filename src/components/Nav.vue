@@ -73,8 +73,8 @@
               <li>
                 <router-link to="/books/my" class="dropdown-item">My Books</router-link>
               </li>
-              <li>
-                <router-link to="/logout" class="dropdown-item">Logout</router-link>
+              <li @click.prevent="logout">
+                <router-link to="" class="dropdown-item">Logout</router-link>
               </li>
             </ul>
           </li>
@@ -83,3 +83,20 @@
     </div>
   </nav>
 </template>
+
+<script>
+import axios from 'axios';
+
+export default {
+  methods: {
+    async logout() {
+      try {
+        await axios.get('http://localhost:3000/users/logout', { withCredentials: true });
+        window.location.reload();
+      } catch (e) {
+        console.log(e);
+      }
+    },
+  },
+};
+</script>
