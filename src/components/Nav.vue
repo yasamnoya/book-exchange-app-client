@@ -73,7 +73,7 @@
                 >
               </li>
               <li>
-                <router-link to="/profile/edit" class="dropdown-item">Edit Profile</router-link>
+                <router-link to="/users/edit" class="dropdown-item">Edit Profile</router-link>
               </li>
               <li>
                 <router-link to="/books/my" class="dropdown-item">My Books</router-link>

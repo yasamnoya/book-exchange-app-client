@@ -46,7 +46,6 @@ export default {
   async created() {
     const res = await axios.get(`http://localhost:3000/users/${this.$route.params.userId}`);
     this.user = res.data;
-    console.log(this.user);
   },
 };
 </script>
