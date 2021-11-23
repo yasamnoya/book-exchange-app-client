@@ -39,6 +39,11 @@ const routes = [
     component: () => import('../views/Requests.vue'),
   },
   {
+    path: '/requests/new',
+    name: 'NewRequest',
+    component: () => import('../views/NewRequest.vue'),
+  },
+  {
     path: '/trades',
     name: 'Trades',
     component: () => import('../views/Trades.vue'),
