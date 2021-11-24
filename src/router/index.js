@@ -49,6 +49,11 @@ const routes = [
     component: () => import('../views/IncomingRequests.vue'),
   },
   {
+    path: '/requests/:requestId/select',
+    name: 'RequestSelect',
+    component: () => import('../views/RequestSelect.vue'),
+  },
+  {
     path: '/trades',
     name: 'Trades',
     component: () => import('../views/Trades.vue'),
