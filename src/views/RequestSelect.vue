@@ -10,7 +10,9 @@
           <div class="row">
             <div class="col">
               <div class="mb-3">
-                <router-link :to="`/users/${user._id}`">{{ user.username }}</router-link>
+                <router-link :to="`/users/${request.requestor.username}`">{{
+                  request.requestor.username
+                }}</router-link>
                 wants to give you:
               </div>
               <div class="card p-3" v-for="book in toGive" :key="book._id">
