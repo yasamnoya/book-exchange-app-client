@@ -57,9 +57,9 @@ export default {
     books: [],
   }),
   async created() {
-    const res = await axios.get(`http://localhost:3000/users/${this.$route.params.userId}/books`);
+    const res = await axios.get(`/users/${this.$route.params.userId}/books`);
     this.books = res.data;
-    const res2 = await axios.get(`http://localhost:3000/users/${this.$route.params.userId}`);
+    const res2 = await axios.get(`/users/${this.$route.params.userId}`);
     this.dataUser = res2.data;
   },
 };

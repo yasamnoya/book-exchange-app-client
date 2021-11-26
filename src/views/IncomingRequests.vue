@@ -93,13 +93,13 @@ export default {
     requests: [],
   }),
   async created() {
-    const res = await axios.get('http://localhost:3000/requests/incoming');
+    const res = await axios.get('/requests/incoming');
     this.requests = res.data;
   },
   methods: {
     async reject(requestId) {
       try {
-        await axios.patch(`http://localhost:3000/requests/${requestId}/reject`);
+        await axios.patch(`/requests/${requestId}/reject`);
         window.location.reload();
       } catch (e) {
         console.log(e);

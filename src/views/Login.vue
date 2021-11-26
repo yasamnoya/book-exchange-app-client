@@ -7,7 +7,10 @@ export default {
   methods: {
     async login(e) {
       e.preventDefault();
-      const url = 'https://github.com/login/oauth/authorize?client_id=5222f014dda26735a15d&redirect_url=http://localhost:8080/books';
+      console.log(process.env);
+      console.log(process.env.VUE_APP_GITHUB_CLIENT_ID);
+      const url = `https://github.com/login/oauth/authorize?client_id=${process.env.VUE_APP_GITHUB_CLIENT_ID}`;
+      console.log(url);
 
       window.location.assign(url);
     },

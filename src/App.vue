@@ -19,7 +19,7 @@ export default {
   },
   async created() {
     try {
-      const res = await axios.get('http://localhost:3000/users/login/success', {
+      const res = await axios.get('/users/login/success', {
         withCredentials: true,
       });
       this.user = res.data;

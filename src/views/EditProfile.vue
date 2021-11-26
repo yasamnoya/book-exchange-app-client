@@ -57,7 +57,7 @@ export default {
     async submit() {
       /* eslint no-underscore-dangle: 0 */
       try {
-        await axios.patch(`http://localhost:3000/users/${this.user._id}`, this.dataUser);
+        await axios.patch(`/users/${this.user._id}`, this.dataUser);
         window.location.reload();
       } catch (e) {
         console.log(e);

@@ -51,7 +51,7 @@ export default {
     trades: [],
   }),
   async created() {
-    const res = await axios.get('http://localhost:3000/trades');
+    const res = await axios.get('/trades');
     this.trades = res.data;
   },
 };

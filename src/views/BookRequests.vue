@@ -77,7 +77,7 @@ export default {
     book: {},
   }),
   async created() {
-    const res = await axios.get(`http://localhost:3000/books/${this.$route.params.bookId}/`);
+    const res = await axios.get(`/books/${this.$route.params.bookId}/`);
     this.book = res.data;
     this.requests = this.book.requests;
     console.log(this.book);

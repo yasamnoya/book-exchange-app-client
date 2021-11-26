@@ -193,7 +193,7 @@ export default {
   }),
   async created() {
     /* eslint no-underscore-dangle: 0 */
-    const res = await axios.get(`http://localhost:3000/requests/${this.$route.params.requestId}`);
+    const res = await axios.get(`/requests/${this.$route.params.requestId}`);
     this.request = res.data;
     this.request.toGive = this.request.toGive.map((book) => ({
       ...book,
@@ -214,7 +214,7 @@ export default {
     async submitRequest() {
       try {
         const { toGive, toTake } = this;
-        await axios.patch(`http://localhost:3000/requests/${this.$route.params.requestId}/accept`, {
+        await axios.patch(`/requests/${this.$route.params.requestId}/accept`, {
           toGive: toGive.map((book) => book._id),
           toTake: toTake.map((book) => book._id),
         });

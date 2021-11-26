@@ -49,7 +49,7 @@ export default {
     dataUser: null,
   }),
   async created() {
-    const res = await axios.get(`http://localhost:3000/users/${this.$route.params.userId}`);
+    const res = await axios.get(`/users/${this.$route.params.userId}`);
     this.dataUser = res.data;
   },
 };

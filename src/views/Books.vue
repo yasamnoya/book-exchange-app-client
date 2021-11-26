@@ -54,7 +54,7 @@ export default {
     books: [],
   }),
   async created() {
-    const res = await axios.get('http://localhost:3000/books');
+    const res = await axios.get('/books');
     this.books = res.data;
   },
 };

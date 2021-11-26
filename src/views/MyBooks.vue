@@ -84,14 +84,14 @@ export default {
   }),
   async created() {
     /* eslint no-underscore-dangle: 0 */
-    const res = await axios.get(`http://localhost:3000/users/${this.user._id}/books`);
+    const res = await axios.get(`/users/${this.user._id}/books`);
     this.books = res.data;
   },
   methods: {
     async addBook() {
       try {
         const { title, description } = this;
-        await axios.post('http://localhost:3000/books/', { title, description });
+        await axios.post('/books/', { title, description });
         window.location.reload();
       } catch (e) {
         console.log(e);
@@ -99,7 +99,7 @@ export default {
     },
     deleteBook: async (bookId) => {
       try {
-        await axios.delete(`http://localhost:3000/books/${bookId}`);
+        await axios.delete(`/books/${bookId}`);
         window.location.reload();
       } catch (e) {
         console.log(e);

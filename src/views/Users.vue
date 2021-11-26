@@ -20,7 +20,7 @@ export default {
     users: [],
   }),
   async created() {
-    const res = await axios.get('http://localhost:3000/users');
+    const res = await axios.get('/users');
     this.users = res.data;
     console.log(this.users);
   },

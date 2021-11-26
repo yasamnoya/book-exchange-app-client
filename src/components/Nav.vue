@@ -99,7 +99,7 @@ export default {
   methods: {
     async logout() {
       try {
-        await axios.get('http://localhost:3000/users/logout', { withCredentials: true });
+        await axios.get('/users/logout', { withCredentials: true });
         window.location.reload();
       } catch (e) {
         console.log(e);

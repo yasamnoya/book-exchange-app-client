@@ -192,7 +192,7 @@ export default {
   }),
   async created() {
     /* eslint no-underscore-dangle: 0 */
-    const res = await axios.get('http://localhost:3000/books');
+    const res = await axios.get('/books');
     this.myBooks = res.data.filter((book) => book.owner._id === this.user._id);
     this.myBooks = this.myBooks.map((book) => ({ ...book, checked: false }));
     this.othersBooks = res.data.filter((book) => book.owner._id !== this.user._id);
@@ -208,7 +208,7 @@ export default {
     async submitRequest() {
       try {
         const { toGive, toTake } = this;
-        await axios.post('http://localhost:3000/requests', { toGive, toTake });
+        await axios.post('/requests', { toGive, toTake });
         this.$router.push('/requests');
       } catch (e) {
         console.log(e);

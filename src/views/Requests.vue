@@ -76,7 +76,7 @@ export default {
     requests: [],
   }),
   async created() {
-    const res = await axios.get('http://localhost:3000/requests');
+    const res = await axios.get('/requests');
     this.requests = res.data;
   },
 };
